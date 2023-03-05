@@ -4,6 +4,7 @@
 }
 
 .cell {
-    /* border: solid blue; */
+    /* border: solid red; */
+    width: auto;
 }
 

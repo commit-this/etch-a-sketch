@@ -8,10 +8,19 @@ function generateDivs(gridLength) {
             let cell = document.createElement("div");
             cell.className = "cell";
             row.appendChild(cell);
-            // cell.textContent = "test";
+            cell.textContent = "test";
         }
         container.appendChild(row);
     }
 }
 
-// generateDivs(4);
+function changeDivColor (event) {
+    const el = event.target;
+    el.setAttribute("style", "background-color: red");
+    // console.log("in");
+}
+
+generateDivs(4);
+
+const cells = document.querySelectorAll(".cell");
+cells.forEach(cell => cell.addEventListener("mouseenter", changeDivColor));
