@@ -1,10 +1,28 @@
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    padding: 0;
+}
+
+.container {
+    display: grid;
+    width: 800px;
+    height: 800px;
+    border: solid pink;
+}
+
 .row {
     /* border: solid yellow; */
     display: flex;
+    flex-grow: 1;
+    height: 100%;
 }
 
 .cell {
     /* border: solid red; */
-    width: auto;
+    width: 100%;
 }
 
