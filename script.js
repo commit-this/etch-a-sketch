@@ -8,7 +8,6 @@ function generateGrid(gridLength) {
             const cell = document.createElement("div");
             cell.className = "cell";
             row.appendChild(cell);
-            // cell.textContent = "test";
         }
         container.appendChild(row);
     }
@@ -29,12 +28,12 @@ function removeAllChildNodes(parent) {
 
 function clearGrid() {
     const container = document.querySelector(".container");
-    const rows = document.querySelectorAll(".rows");
+    // const rows = document.querySelectorAll(".rows");
     // rows.forEach(row => removeAllChildNodes(row));
     removeAllChildNodes(container);
 }
 
-// page will load with 16x16 grid
+// Page will load with an initial 16x16 grid
 generateGrid(16);
 
 const btn = document.querySelector("button");
@@ -44,7 +43,11 @@ btn.addEventListener("click", () => {
     // No valid user input will generate new default size 16x16 grid
     if (newSize === null || newSize === NaN) {
         generateGrid(16);
+    } else if (newSize > 100) {
+        alert("Cannot accept a grid length greater than 100");
+        generateGrid(16);
     } else {
         generateGrid(newSize);
     }
+    
 });

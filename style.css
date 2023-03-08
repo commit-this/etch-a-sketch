@@ -15,14 +15,12 @@ body {
 }
 
 .row {
-    /* border: solid yellow; */
     display: flex;
     flex-grow: 1;
     height: 100%;
 }
 
 .cell {
-    /* border: solid red; */
     width: 100%;
 }
 
