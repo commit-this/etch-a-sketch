@@ -16,12 +16,26 @@ function generateGrid(gridLength) {
 }
 
 function changeCellColor(event) {
+    // Imitate etch-a-sketch behavior by making grid squares a little more black each time event triggers
     const el = event.target;
-    const randomBetween = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
-    const r = randomBetween(0,255);
-    const g = randomBetween(0,255);
-    const b = randomBetween(0,255);
-    el.setAttribute("style", `background-color: rgb(${r},${g},${b})`);
+    if (!el.style.backgroundColor) {
+        el.style.backgroundColor = "rgb(192,192,192)";
+    } else {
+        // Get individual rgb values. We only need one since they are all the same
+        values = el.style.backgroundColor.split(",")
+        // Remove non-numeric characters
+        color = parseInt(values[0].replace(/\D/g,""));
+        // Set new rgb to be 10% more black
+        moreBlack = Math.floor(color * 0.9);
+        el.style.backgroundColor = `rgb(${moreBlack},${moreBlack},${moreBlack})`;
+    }
+
+    /* Previous code that changed background color to random RGB */
+    // const randomBetween = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
+    // const r = randomBetween(0,255);
+    // const g = randomBetween(0,255);
+    // const b = randomBetween(0,255);
+    // el.setAttribute("style", `background-color: rgb(${r},${g},${b})`);
 }
 
 function removeAllChildNodes(parent) {
@@ -51,5 +65,4 @@ btn.addEventListener("click", () => {
     } else {
         generateGrid(newSize);
     }
-    
 });
