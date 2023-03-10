@@ -17,7 +17,11 @@ function generateGrid(gridLength) {
 
 function changeCellColor(event) {
     const el = event.target;
-    el.setAttribute("style", "background-color: red");
+    const randomBetween = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
+    const r = randomBetween(0,255);
+    const g = randomBetween(0,255);
+    const b = randomBetween(0,255);
+    el.setAttribute("style", `background-color: rgb(${r},${g},${b})`);
 }
 
 function removeAllChildNodes(parent) {
@@ -28,8 +32,6 @@ function removeAllChildNodes(parent) {
 
 function clearGrid() {
     const container = document.querySelector(".container");
-    // const rows = document.querySelectorAll(".rows");
-    // rows.forEach(row => removeAllChildNodes(row));
     removeAllChildNodes(container);
 }
 
